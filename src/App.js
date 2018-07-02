@@ -38,11 +38,16 @@ class App extends Component {
   }
 
   render = () => {
+
+    let filtered = this.state.shows
+    if(this.state.searchTerm){
+      filtered = this.state.shows.filter(show => show.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    }
     return (
       <div>
         <Searchbar handleSearch={this.handleSearch} value={this.state.searchTerm}/>
         <TVShowList onClick={this.changeSelectedShow} 
-        shows={this.state.shows} 
+        shows={filtered} 
         selectedShow={this.state.selectedShow}
         />
 
