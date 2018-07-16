@@ -37,7 +37,7 @@ export default class ShowDetails extends Component {
         return this.state.episodes.filter((episode) => {
             return episode.season == this.state.selectedSeason
         }).map((episode)=>{
-            return <li> {episode.name} </li>
+            return <li key={episode.id}> {episode.name} </li>
         })
     }
 
